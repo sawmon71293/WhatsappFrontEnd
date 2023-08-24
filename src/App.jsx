@@ -1,38 +1,35 @@
+
+import {
+  Route,
+  Routes
+} from "react-router-dom";
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
+import SignIn from './components/Register/Signin';
+import SignUp from './components/Register/Signup';
 import Status from './components/Status/Status';
 import StatusViewer from './components/Status/StatusViewer';
-import Signin from './components/Register/Signin';
-import Signup from './components/Register/Signup';
+
 
 function App() {
-  return (
-    <Router>
-      <div className="app">
-        <div className="content">
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/status">
-              <Status />
-            </Route>
-            <Route path="/status/userId">
-              <StatusViewer />
-            </Route>
-            <Route path="/signin">
-              <Signin />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </Router>
 
-  );
+  return (
+
+    <div className='app'>
+      <div className='content'>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/status" element={<Status />} />
+          <Route path="/status/:userId" element={<StatusViewer />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </div>
+    </div>
+
+
+
+  )
 }
 
-export default App;
+export default App
